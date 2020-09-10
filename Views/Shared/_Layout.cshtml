@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Controle de Estoque</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/sweetalert2.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Product of Registration", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Registration
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Product groups", "Index", "RegProductGroups")</li>
+                            <li>@Html.ActionLink("Brand products", "Index", "RegBrandProduct")</li>
+                            <li>@Html.ActionLink("Storage locations", "Index", "RegStorageLocations")</li>
+                            <li>@Html.ActionLink("Units of measure", "Index", "RegUnitsMeasure")</li>
+                            <li>@Html.ActionLink("Product", "Index", "RegProduct")</li>
+                            <li class="nav-divider"></li>
+                            <li>@Html.ActionLink("Countries", "Index", "RegCountries")</li>
+                            <li>@Html.ActionLink("States", "Index", "RegStates")</li>
+                            <li>@Html.ActionLink("City", "Index", "RegCity")</li>
+                            <li>@Html.ActionLink("Providers", "Index", "RegProviders")</li>
+                            <li class="nav-divider"></li>
+                            <li>@Html.ActionLink("User Profiles", "Index", "RegProfile")</li>
+                            <li>@Html.ActionLink("User", "Index", "RegUser")</li>
+                        </ul>
+                    </li>
+                </ul>
+                using (Html.BeginForm("LogOff", "Conta", FormMethod.Post, new { id = "logoffForm" }))
+                {
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Abaut", "Abaut", "Home")</li>
+                </ul>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Product of Registration</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/sweetalert2.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
